@@ -1,5 +1,6 @@
 @extends('main')
 @section ('title','|Pro')
+
 @section('content')
 <div class="container">
 

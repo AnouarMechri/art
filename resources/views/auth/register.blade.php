@@ -18,10 +18,48 @@
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="phone" class="col-md-4 col-form-label text-md-right">Phone number (optional)</label>
+                            <div class="col-md-6">
+                                <input id="phone" type="tel" class="form-control @error('phone') is-invalid @enderror" name="phone" pattern="[0-9]{2}-[0-9]{3}-[0-9]{3}" maxlength="10" placeholder="XX-XXX-XXX">
+
+                                @error('phone')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="location" class="col-md-4 col-form-label text-md-right">Location</label>
+
+                            <div class="col-md-6">
+                            
+                                <select id="location" class="form-control @error('location') is-invalid @enderror" name="location">
+                                    <option value="Sousse">Sousse</option>
+                                    <option value="Rejiche">Rejiche</option>
+                                    <option value="Tunis">Tunis</option>
+                                    <option value="Monastir">Monastir</option>
+                                    <option value="Beja">Beja</option>
+                                    <option value="Kairaouan">Kairaouan</option>
+                                    <option value="Sfax">Sfax</option>
+                                    <option value="Nabeul">Nabeul</option>
+                                    <option value="Bizzerte">Bizzerte</option>
+                                    <option value="Kef">Kef</option>
+                                    
+                                    </select>
+
+                                    @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
+                                    @enderror
                             </div>
                         </div>
 
@@ -32,9 +70,9 @@
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                 @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
@@ -46,9 +84,9 @@
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
                                 @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
