@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -60,6 +62,7 @@ class PostController extends Controller
         $post->body = $request->body;
         $post->prix = $request->prix;
         $post->category_id = $request->category_id ;
+        $post->user_id = Auth::user()->id ;
         $post->image = $request->input('image');
         if ($request->hasFile('image')) {
 

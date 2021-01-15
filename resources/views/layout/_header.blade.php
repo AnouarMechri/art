@@ -21,6 +21,9 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
+    <a class="navbar-brand" href="index">
+          <img src="coursel/logo.png" alt="" height="50px">
+        </a>
       @if (Auth::check())
       <div class="dropdown">
         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
@@ -44,6 +47,7 @@
       @else
       <a href="{{ route('register') }}" class="btn btn-primary">CREE COMPTE</a>
       @endif
+      
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>

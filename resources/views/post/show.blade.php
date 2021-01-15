@@ -16,7 +16,9 @@
             <p class="card-text">{{ $post->body }}</p>
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">Category: {{ $post->category->name }} </li>
+            <li class="list-group-item">Category: {{$post->category->name}} </li>
+            <li class="list-group-item">Category: {{$post->user->name}} </li>
+
            
             <li class="list-group-item"> Price : {{$post->prix}} DT </li>
             <li class="list-group-item">Vestibulum at eros</li>

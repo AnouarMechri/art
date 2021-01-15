@@ -2,13 +2,15 @@
   @section ('title','| Home')
   @section('content')
   <!-- Page Content -->
-  <div class="container">
+  <div class="container" style="margin-top:40px;">
 
       <div class="row">
 
           <div class="col-lg-3">
 
-              <h1 class="my-4">SHOP ONLINE</h1>
+          <a class="navbar-brand" href="#">
+          <img src="coursel/logo.png" alt="" height="150px" width="150px" style="margin-left: 40px;">
+        </a>
               <div class="list-group">
                   <a href="/create" class="btn btn-primary btn-block"> Create new post </a>
                   <hr>
@@ -32,10 +34,10 @@
                   </ol>
                   <div class="carousel-inner" role="listbox">
                       <div class="carousel-item active">
-                          <img class="d-block img-fluid" src="https://www.eurodiaconia.org/wordpress/wp-content/uploads/2016/02/welcome.jpg" alt="First slide">
+                          <img class="d-block img-fluid" src="/coursel/welcome.jpg" alt="First slide" >
                       </div>
                       <div class="carousel-item">
-                          <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Second slide">
+                          <img class="d-block img-fluid" src="/coursel/po.jpg" alt="Second slide">
                       </div>
                       <div class="carousel-item">
                           <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Third slide">
@@ -65,6 +67,7 @@
                               <p class="card-text">{{substr($post->body,0,50)}}{{ strlen($post->body) > 50 ? "...." : "" }}
                               </p>
                               <p> {{ date( 'M j, Y H:i' , strtotime($post->created_at)   )  }} </p>
+                              <p>Posted by: {{ $post->user->name }} </p>
                               <p> </p>
                           </div>
                           <div class="card-footer">
