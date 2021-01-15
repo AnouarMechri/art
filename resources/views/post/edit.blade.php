@@ -10,7 +10,7 @@
         </ul>
     </div>
 @endif
-<form action="post.update/{{$post->id}}" method="POST" class="submit-form">
+<form action="/update/{{$post->id}}" method="POST" class="submit-form">
  @csrf
  
 
@@ -31,10 +31,11 @@
   </select>
  
   <label for="image">Add Image:</label>
-
+@csrf
 <br>
 
 <input type="file" id='image' name="image" class="form-control" value="{{$post->image}}"><br><br>
+@csrf
 </div>
 <div class="col-md-4">
     <div class="well">

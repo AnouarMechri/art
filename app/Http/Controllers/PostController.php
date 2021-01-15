@@ -120,6 +120,7 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
         $post= Post::find($id);
         if($request->input('slug')==$post->slug) {
         $this->validate($request, array(

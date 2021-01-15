@@ -51,7 +51,7 @@ Route::post('/store', [PostController::class, 'store']);
 Route::get('/index', [PostController::class, 'index']);
 Route::get('/show/{post}', [PostController::class, 'show']);
 Route::get('/edit/{post}', [PostController::class, 'edit']);
-Route::post('post.update/{post}', [PostController::class, 'update']);
+Route::post('/update/{post}', [PostController::class, 'update']);
 Route::get('/destroy/{post}', [PostController::class, 'destroy']);
 
 
