@@ -1,16 +1,6 @@
 @extends('main')
   @section ('title','| Home')
-  
   @section('content')
-  @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
- @endif
-
   <!-- Page Content -->
   <div class="container">
 
@@ -22,9 +12,10 @@
               <div class="list-group">
                   <a href="/create" class="btn btn-primary btn-block"> Create new post </a>
                   <hr>
-                  <a href="#" class="list-group-item">Category 1</a>
-                  <a href="#" class="list-group-item">Category 2</a>
-                  <a href="#" class="list-group-item">Category 3</a>
+                  <a href="/categories/index" class="btn btn-primary btn-block"> show all categories </a>
+                  
+                  <a href="#" class="list-group-item">{{ ($categories) }}</a>
+                  
               </div>
 
           </div>
@@ -63,10 +54,11 @@
                 @foreach($posts as $post)
                   <div class="col-lg-4 col-md-6 mb-4">
                       <div class="card h-100">
-                          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                            
+                          <a href="#"><img class="card-img-top" src="/images/{{$post->image}}" alt=""></a>
                           <div class="card-body">
                               <h4 class="card-title">
-                                  <a href=" url('pro/'.$post->slug) ">{{$post->title }}</a>
+                                  <a href="/show/{{$post->id}}">{{$post->title }}</a>
                               </h4>
                               <h5>prykes </h5>
                               <p class="card-text">{{substr($post->body,0,50)}}{{ strlen($post->body) > 50 ? "...." : "" }}
@@ -77,7 +69,7 @@
                           <div class="card-footer">
                               <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
                           </div>
-                      </div>
+                      </div>  
                   </div>
                 @endforeach
                   
@@ -93,8 +85,12 @@
 
   </div>
   <!-- /.container -->
+  <div class="row">
+      <div class="col-md-12">
   <div class="text-center" style=" display: inline-block;" >
-                
+                {!! $posts->links() !!}
 
+    </div>
+    </div>
     </div>
   @endsection

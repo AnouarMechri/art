@@ -10,19 +10,31 @@
         </ul>
     </div>
 @endif
-<form action="/update/{{$post->id}}" method="POST" class="submit-form">
+<form action="post.update/{{$post->id}}" method="POST" class="submit-form">
  @csrf
  
 
 <div class="row">
 
     <div class="col-md-8">
-    <label for="fname">title:</label><br>
-    <input type="text" name="title" value="{{$post->title}}" class="form-control" style="height:50px; width:400px" placeholder="title"><br>
-    <label for="fname">slug:</label><br>
-    <input type="text" name="slug" value="{{$post->slug}}" class="form-control" style="height:50px; width:400px" placeholder="slug"><br>
-    <label for="fname">body:</label><br>
-    <input type="text" name="body" value="{{$post->body}}" class="form-control" style="height:50px; width:400px" placeholder="body"><br>
+    <label for="fname">Nom de produit:</label>
+  <input type="text" id='title' name="title" class="form-control" value="{{$post->title}}"><br><br>
+  <label for="fname">Slug:</label>
+  <input type="text" id='slug' name="slug" class="form-control" value="{{$post->slug}}" ><br><br>
+ <label for="lname">Description:</label>
+  <input type="text" id='body' name="body" class="form-control" value="{{$post->body}}" maxlength="255"><br><br>
+  <label for="category_id">Category:</label>
+  <select class="form-control" name="category_id">
+    @foreach($categories as $category)
+    <option value="{{$category->id}}"> {{ $category->name }}</option>
+    @endforeach
+  </select>
+ 
+  <label for="image">Add Image:</label>
+
+<br>
+
+<input type="file" id='image' name="image" class="form-control" value="{{$post->image}}"><br><br>
 </div>
 <div class="col-md-4">
     <div class="well">
