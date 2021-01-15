@@ -10,7 +10,7 @@
         </ul>
     </div>
 @endif
-<form action="/update/{{$post->id}}" method="POST" class="submit-form">
+<form action="/update/{{$post->id}}" method="POST"  enctype="multipart/form-data" class="submit-form">
  @csrf
  
 
