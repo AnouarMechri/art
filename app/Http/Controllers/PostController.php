@@ -58,6 +58,7 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->slug = $request->slug;
         $post->body = $request->body;
+        $post->prix = $request->prix;
         $post->category_id = $request->category_id ;
         $post->image = $request->input('image');
         if ($request->hasFile('image')) {
@@ -133,12 +134,15 @@ class PostController extends Controller
                     'title' => 'required|max:255',
                     'slug'  => 'required|unique:post,slug',
                     'body'  => 'required' ,
+                    'prix'  => 'required',
                     'category_id'  => 'required' ));} 
        
         $post= Post::find($id);
         $post->title = $request->input('title');
         $post->slug = $request->input('slug');
         $post->body = $request->input('body');
+        $post->prix = $request->input('prix');
+
         $post->category_id = $request->category_id ;
         $post->image = $request->input('image');
         if ($request->hasFile('image')) {
@@ -177,6 +181,6 @@ class PostController extends Controller
         $post= Post::find($id);
         $post->delete();
         session()->flash('success','Your post was successfully deleted :))');
-        return redirect()->action([PostController::class, 'index']);
+        return redirect()->action([PagesController::class, 'index']);
     }
 }

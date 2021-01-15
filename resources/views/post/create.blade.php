@@ -23,6 +23,8 @@
   <input type="text" id='slug' name="slug" class="form-control" required><br><br>
  <label for="lname">Description:</label>
   <input type="text" id='body' name="body" class="form-control"required maxlength="255"><br><br>
+  <label for="fname">Prix en DT:</label>
+  <input type="text" id='prix' name="prix" class="form-control"required><br><br>
   <label for="category_id">Category:</label>
   <select class="form-control" name="category_id">
     @foreach($categories as $category)

@@ -60,7 +60,7 @@
                               <h4 class="card-title">
                                   <a href="/show/{{$post->id}}">{{$post->title }}</a>
                               </h4>
-                              <h5>prykes </h5>
+                              <h5>Price : {{$post->prix}} DT</h5>
                               <p class="card-text">{{substr($post->body,0,50)}}{{ strlen($post->body) > 50 ? "...." : "" }}
                               </p>
                               <p> {{ date( 'M j, Y H:i' , strtotime($post->created_at)   )  }} </p>
@@ -85,12 +85,15 @@
 
   </div>
   <!-- /.container -->
-  <div class="row">
-      <div class="col-md-12">
-  <div class="text-center" style=" display: inline-block;" >
-                {!! $posts->links() !!}
-
-    </div>
-    </div>
-    </div>
+ 
+    
+</div>
+</div>
+<div class="d-flex justify-content-center">
+    {!! $posts->links() !!}
+</div>
+<br>
+    
+    
+    
   @endsection

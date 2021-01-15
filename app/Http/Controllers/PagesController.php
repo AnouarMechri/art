@@ -20,8 +20,9 @@ class PagesController extends Controller
           
             ->get();
            
-        $posts= Post::orderBy('id','desc')->paginate(2);
-    
+       
+        $posts = post::latest()->paginate(6);
+
         return view('pages.index', compact('categories', 'posts'));
     }
 

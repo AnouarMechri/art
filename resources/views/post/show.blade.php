@@ -10,8 +10,8 @@
             <p class="card-text">{{ $post->body }}</p>
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">Category: </li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Category: {{$post->category_id}} </li>
+            <li class="list-group-item"> Price : {{$post->prix}} DT </li>
             <li class="list-group-item">Vestibulum at eros</li>
         </ul>
         <div class="card-body">
