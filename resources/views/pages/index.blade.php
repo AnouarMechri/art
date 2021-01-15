@@ -32,7 +32,7 @@
                   </ol>
                   <div class="carousel-inner" role="listbox">
                       <div class="carousel-item active">
-                          <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="First slide">
+                          <img class="d-block img-fluid" src="https://www.eurodiaconia.org/wordpress/wp-content/uploads/2016/02/welcome.jpg" alt="First slide">
                       </div>
                       <div class="carousel-item">
                           <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Second slide">
@@ -56,7 +56,7 @@
                   <div class="col-lg-4 col-md-6 mb-4">
                       <div class="card h-100">
                             
-                          <a href="#"><img class="card-img-top" src="/images/{{$post->image}}" alt=""></a>
+                          <a href="#"><img class="card-img-top" src="/images/{{$post->image}}" alt="" height="280px" width="320px"></a>
                           <div class="card-body">
                               <h4 class="card-title">
                                   <a href="/show/{{$post->id}}">{{$post->title }}</a>
