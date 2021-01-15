@@ -10,7 +10,7 @@
         </ul>
     </div>
 @endif
-<form action="/update/{{$post->id}}" method="POST"  enctype="multipart/form-data" class="submit-form">
+<form action="/update/{{$post->id}}" method="POST"  enctype="multipart/form-data" class="submit-form" data-parsley-validate>
  @csrf
  
 
@@ -29,12 +29,13 @@
     <option value="{{$category->id}}"> {{ $category->name }}</option>
     @endforeach
   </select>
- 
+  <label for="fname">Price:</label>
+  <input type="text" id='slug' name="prix" class="form-control" value="{{$post->prix}}" ><br><br>
   <label for="image">Add Image:</label>
 @csrf
 <br>
 
-<input type="file" id='image' name="image" class="form-control" value="{{$post->image}}"><br><br>
+<input type="file" id='image' name="image" class="form-control" value="{{$post->image}}" required ><br><br>
 @csrf
 </div>
 <div class="col-md-4">

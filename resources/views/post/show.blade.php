@@ -2,7 +2,13 @@
 @section ('title','|Create')
 @section('content')
 <div class="row justify-content-center">
+    
     <div class="col-md-5 " style=" margin: 100px 0px 100px 0px;">
+                <div class="row col-sm-6">
+                <a href="/index" class="btn btn-primary btn-block" style="margin-bottom: 20px" >
+                    << Tout les postes </a>
+                </div>  
+
         <div class="card" style="width: 18rem;">
         <img src="/images/{{$post->image}}" class="card-img-top" alt="...">
         <div class="card-body">
@@ -51,7 +57,4 @@
                 </form>
             </div>
         </div>
-        <div class="row">
-            <div class="col-col-md-12">
-                <a href="/index" class="btn btn-primary btn-block">
-                    << Tout les postes </a> </div> </div> </div> </div> </div> @endsection
+       </div> </div> </div> @endsection
