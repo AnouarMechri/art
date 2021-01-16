@@ -2,7 +2,7 @@
 @section ('title','|Create')
 @section('content')
 @if ($errors->any())
-    <div class="alert alert-danger">
+    <div class="alert alert-danger" >
         <ul>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
@@ -10,7 +10,7 @@
         </ul>
     </div>
 @endif
-<form action="/update/{{$post->id}}" method="POST"  enctype="multipart/form-data" class="submit-form" data-parsley-validate>
+<form action="/update/{{$post->id}}" method="POST"  enctype="multipart/form-data" class="submit-form" style="margin-top: 80px; "data-parsley-validate>
  @csrf
  
 

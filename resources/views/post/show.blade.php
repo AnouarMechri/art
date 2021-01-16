@@ -17,11 +17,12 @@
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">Category: {{$post->category->name}} </li>
-            <li class="list-group-item">Category: {{$post->user->name}} </li>
-
-           
+                 
             <li class="list-group-item"> Price : {{$post->prix}} DT </li>
-            <li class="list-group-item">Vestibulum at eros</li>
+            <li class="list-group-item">By: @if (Auth::user()->name == $post->user->name)<a href="#">  YOU </a>
+                                  @else
+                                  <a href="#"> {{$post->user->name}}  </a>
+                                @endif </li>
         </ul>
         <div class="card-body">
             <a href="#" class="card-link">Card link</a>
@@ -37,15 +38,20 @@
 
         </dl>
         <dl class="dl-horizental">
-            <label>Create at :</label>
+            <label>Posted :</label>
             <p> {{ date( 'M j, Y H:i' , strtotime($post->created_at)   )  }} </p>
 
         </dl>
+        @if( $post->created_at ==$post->updated_at )
+       
+        @else
         <dl class="dl-horizental">
-            <label>Updated at :</label>
+            <label>Updated  :</label>
             <p>{{ date( 'M j, Y H:i' , strtotime($post->updated_at)   )  }}</p>
 
         </dl>
+        @endif
+        @if (Auth::user()->name == $post->user->name)
         <div class="row">
             <div class="col-sm-6">
                 <a href="/edit/{{$post->id}}" class="btn btn-primary btn-block"> Edit </a>
@@ -60,4 +66,5 @@
                 </form>
             </div>
         </div>
+        @endif
        </div> </div> </div> @endsection

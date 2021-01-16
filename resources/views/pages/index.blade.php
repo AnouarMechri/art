@@ -66,8 +66,8 @@
                               <h5>Price : {{$post->prix}} DT</h5>
                               <p class="card-text">{{substr($post->body,0,50)}}{{ strlen($post->body) > 50 ? "...." : "" }}
                               </p>
-                              <p> {{ date( 'M j, Y H:i' , strtotime($post->created_at)   )  }} </p>
-                              <p>Posted by:
+                              <p>Posted : {{ date( 'M j, Y H:i' , strtotime($post->created_at)   )  }} </p>
+                              <p>by:
                                   @if (Auth::user()->name == $post->user->name)<a href="#">  YOU </a>
                                   @else
                                   <a href="#"> {{$post->user->name}}  </a>
