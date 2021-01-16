@@ -19,9 +19,9 @@
             <li class="list-group-item">Category: {{$post->category->name}} </li>
                  
             <li class="list-group-item"> Price : {{$post->prix}} DT </li>
-            <li class="list-group-item">By: @if (Auth::user()->name == $post->user->name)<a href="#">  YOU </a>
+            <li class="list-group-item">By: @if (Auth::user()->id == $post->user->id)<a href="/user/{{$post->user->name}}">  YOU </a>
                                   @else
-                                  <a href="#"> {{$post->user->name}}  </a>
+                                  <a href="/user/{{$post->user->name}}"> {{$post->user->name}}  </a>
                                 @endif </li>
         </ul>
         <div class="card-body">
@@ -51,7 +51,7 @@
 
         </dl>
         @endif
-        @if (Auth::user()->name == $post->user->name)
+        @if (Auth::user()->id == $post->user->id)
         <div class="row">
             <div class="col-sm-6">
                 <a href="/edit/{{$post->id}}" class="btn btn-primary btn-block"> Edit </a>

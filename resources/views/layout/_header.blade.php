@@ -8,6 +8,7 @@
   <title>E-comerce @yield('title')</title>
 
   <!-- Bootstrap core CSS -->
+  
   <link href={{ URL::asset('vendor/bootstrap/css/bootstrap.min.css') }} rel={{"stylesheet"}}>
 
   <!-- Custom styles for this template -->
@@ -31,7 +32,7 @@
         </button>
         <div class="dropdown-menu">
           <h5 class="dropdown-header">My Account</h5>
-          <a class="dropdown-item" href="#">Profile</a>
+          <a class="dropdown-item" href="/user/{{ Auth::user()->name }}">Profile</a>
           <a class="dropdown-item" href="#">My posts</a>
           <h5 class="dropdown-header">Connexion</h5>
           <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();

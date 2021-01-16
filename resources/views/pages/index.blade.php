@@ -68,7 +68,7 @@
                               </p>
                               <p>Posted : {{ date( 'M j, Y H:i' , strtotime($post->created_at)   )  }} </p>
                               <p>by:
-                                  @if (Auth::user()->name == $post->user->name)<a href="#">  YOU </a>
+                                  @if (Auth::user()->id == $post->user->id)<a href="#">  YOU </a>
                                   @else
                                   <a href="#"> {{$post->user->name}}  </a>
                                 @endif</p>

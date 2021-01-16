@@ -5,7 +5,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\CategoryController;
-
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,6 +30,9 @@ Auth::routes();
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('user/{name}',['as'=>'user.single', 'uses' => 'App\Http\Controllers\UserController@Single']);
+Route::get('user/edit/{name}', [UserController::class, 'edit']);
  
 
 Route::get('/create', [CategoryController::class, 'create']);

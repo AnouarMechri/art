@@ -1,4 +1,5 @@
 @extends('main')
+@if (Auth::user()->name == $post->user->name) {
 @section ('title','|Create')
 @section('content')
 @if ($errors->any())
@@ -67,3 +68,4 @@
 
 
 @endsection
+@endif
