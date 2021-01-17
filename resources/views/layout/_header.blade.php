@@ -33,7 +33,7 @@
         <div class="dropdown-menu">
           <h5 class="dropdown-header">My Account</h5>
           <a class="dropdown-item" href="/user/{{ Auth::user()->name }}">Profile</a>
-          <a class="dropdown-item" href="#">My posts</a>
+          <a class="dropdown-item" href="/user/{{ Auth::user()->name }}/posts">My posts</a>
           <h5 class="dropdown-header">Connexion</h5>
           <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
             document.getElementById('logout-form').submit();">

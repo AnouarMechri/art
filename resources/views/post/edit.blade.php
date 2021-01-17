@@ -1,7 +1,8 @@
 @extends('main')
-@if (Auth::user()->name == $post->user->name) {
+@if (Auth::user()->name == $post->user->name) 
 @section ('title','|Create')
 @section('content')
+<div class="row justify-content-center">
 @if ($errors->any())
     <div class="alert alert-danger" >
         <ul>
@@ -15,15 +16,15 @@
  @csrf
  
 
-<div class="row">
+<div class="row justify-content-center">
 
-    <div class="col-md-8">
+    <div class="col-md-8 ">
     <label for="fname">Nom de produit:</label>
   <input type="text" id='title' name="title" class="form-control" value="{{$post->title}}"><br><br>
   <label for="fname">Slug:</label>
   <input type="text" id='slug' name="slug" class="form-control" value="{{$post->slug}}" ><br><br>
  <label for="lname">Description:</label>
-  <input type="text" id='body' name="body" class="form-control" value="{{$post->body}}" maxlength="255"><br><br>
+  <textarea type="text" id='body' name="body" rows="6" class="form-control" value="{{$post->body}}" maxlength="255"></textarea >   <br><br>
   <label for="category_id">Category:</label>
   <select class="form-control" name="category_id">
     @foreach($categories as $category)
@@ -53,11 +54,11 @@
         </dl>
         <div class="row">
             <div class="col-sm-6">
-            <button type="submit" class="btn btn-success btn-block">Save changes</button>
+            <button type="submit" class="btn btn-success btn-block">Save </button>
             </div>
 
             <div class="col-sm-6">
-                <a href="/show/{{$post->id}}" class="btn btn-danger btn-block"> Cancel</a>
+                <a href="/show/{{$post->id}}" class="btn btn-danger btn-block" style="padding: 5px;"> Cancel</a>
             </div>
         </div>
     </div>
@@ -65,7 +66,7 @@
 </form>
 </div>
 
-
+</div>
 
 @endsection
 @endif

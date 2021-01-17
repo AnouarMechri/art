@@ -58,7 +58,7 @@
                   <div class="col-lg-4 col-md-6 mb-4">
                       <div class="card h-100">
                             
-                          <a href="#"><img class="card-img-top" src="/images/{{$post->image}}" alt="" height="280px" width="320px"></a>
+                          <a href="/show/{{$post->id}}"><img class="card-img-top" src="/images/{{$post->image}}" alt="" height="280px" width="320px"></a>
                           <div class="card-body">
                               <h4 class="card-title">
                                   <a href="/show/{{$post->id}}">{{$post->title }}</a>
@@ -70,7 +70,7 @@
                               <p>by:
                                   @if (Auth::user()->id == $post->user->id)<a href="#">  YOU </a>
                                   @else
-                                  <a href="#"> {{$post->user->name}}  </a>
+                                  <a href="/user/{{$post->user->name}} "> {{$post->user->name}}  </a>
                                 @endif</p>
                               <p> </p>
                           </div>

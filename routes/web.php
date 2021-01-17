@@ -32,7 +32,12 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('user/{name}',['as'=>'user.single', 'uses' => 'App\Http\Controllers\UserController@Single']);
+Route::get('user/{name}/posts',['as'=>'user.archieve', 'uses' => 'App\Http\Controllers\UserController@archieve']);
+
+
+
 Route::get('user/edit/{name}', [UserController::class, 'edit']);
+Route::post('user/update/{name}', [UserController::class, 'update']);
  
 
 Route::get('/create', [CategoryController::class, 'create']);
