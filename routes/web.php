@@ -48,7 +48,8 @@ Route::get('/destroy/{post}', [CategoryController::class, 'destroy']);
 Route::get('site/{slug}',['as'=>'pro.single', 'uses' => 'App\Http\Controllers\SiteController@Single'])->where('slug','[\w\d\-\_]+');
 Route::get('site',['as'=>'pro.index', 'uses' => 'App\Http\Controllers\SiteController@Archive']);
 
-
+Route::get('/Shopping-cart',[PostController::class, 'getCart'])->name('post.ShoppingCart');
+Route::get('/add-to-cart/{id}',[PostController::class, 'getAddToCart'])->name('post.addToCart');
 Route::get('/create', [PostController::class, 'create']);
 Route::post('/store', [PostController::class, 'store']);
 Route::get('/index', [PostController::class, 'index']);

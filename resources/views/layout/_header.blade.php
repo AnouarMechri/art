@@ -61,8 +61,14 @@
 
             </a>
           </li>
-          <li class="nav-item {{ Request::is('about') ? "active" : ""}}">
-            <a class="nav-link" href="pro">Prouduits</a>
+          <li class="nav-item {{ Request::is('') ? "active" : ""}}">
+            <a href="/Shopping-cart" class="nav-link">
+              <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+
+              My Char
+              <span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQty: ''}}</span>
+            
+            </a>
 
           </li>
          @endif

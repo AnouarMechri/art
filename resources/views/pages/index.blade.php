@@ -75,7 +75,7 @@
                               <p> </p>
                           </div>
                           <div class="card-footer">
-                              <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                            <a href="{{ route ('post.addToCart', ['id' => $post->id])}}" class="btn tbn-success pull-right" role="button" > ADD TO CHAR </a>
                           </div>
                       </div>  
                   </div>

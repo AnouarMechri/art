@@ -3,13 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Session\Session;
+//use Symfony\Component\HttpFoundation\Session\Session;
 use App\Models\Post;
 use App\Models\Category;
 use App\Models\User;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Cart;
+use Session; 
+
 
 class PostController extends Controller
 {
@@ -185,5 +188,28 @@ class PostController extends Controller
         $post->delete();
         session()->flash('success','Your post was successfully deleted :))');
         return redirect()->action([PagesController::class, 'index']);
+    }
+
+    /**AddToCart Function */
+    public function getAddToCart(Request $request, $id){
+        $post = post::find($id);
+        $oldCart = Session::has('Cart') ? Session::get('Cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->add($post, $post->id);
+
+        $request->session()->put('cart',$cart);
+        
+        return redirect()->action([PagesController::class, 'index']);
+    }
+    
+    /**getting the cart */
+    public function getCart(){
+        if (!Session::has('cart')) {
+            return view('pages.shopping-cart');
+
+        }
+        $oldCart = Session::get('cart');
+        $cart= new Cart($oldCart);
+        return view('pages.shopping-cart', ['posts'=>$cart->items, 'totalPrice'=>$cart->totalPrice]);
     }
 }
