@@ -60,6 +60,7 @@ Route::get('/destroy/{post}', [PostController::class, 'destroy']);
 
 Route::get('/about', [PagesController::class, 'about']);
 Route::get('/contact', [PagesController::class, 'contact']);
+Route::post('/contact', [PagesController::class, 'postContact']);
 Route::get('/index', [PagesController::class, 'index']);
 
 
