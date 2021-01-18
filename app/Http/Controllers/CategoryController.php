@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
 
@@ -17,12 +19,14 @@ class CategoryController extends Controller
          *
          * @return \Illuminate\Http\Response
          */
-        public function index()
-        {
-           $Categories= Category::all();
-           return view('categories.index')->with('categories',$Categories);
-        }
-    
+        public function index($name)
+    {  
+        
+       
+        $category = Category::where('name', '=', $name)->first();
+        $post= Post::all();
+        return view('categories.index')->with('category', $category)->with('post',$post);
+    }
         
     
         /**

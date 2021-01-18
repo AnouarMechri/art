@@ -40,7 +40,7 @@ Route::get('user/{name}/posts',['as'=>'user.archieve', 'uses' => 'App\Http\Contr
 Route::get('user/edit/{name}', [UserController::class, 'edit']);
 Route::post('user/update/{name}', [UserController::class, 'update']);
  
-
+Route::get('cat/{name}',['as'=>'categories.index', 'uses' => 'App\Http\Controllers\CategoryController@index']);
 Route::get('/create', [CategoryController::class, 'create']);
 Route::post('/categories/categories/store', [CategoryController::class, 'store']);
 Route::get('categories/index', [CategoryController::class, 'index']);

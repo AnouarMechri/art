@@ -2,57 +2,66 @@
   @section ('title','| Home')
   @section('content')
   <!-- Page Content -->
-  @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-  <div class="container">
-    <div class="row" style=" margin: 100px 0px 100px 0px;">
-    <div class="col-md-8" >
-  <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-    
-    </tr>
-  </thead>
-  <tbody>
-  @foreach($categories as $category)
-    <tr>
-      <th scope="row">{{ $category->id }}</th>
-      <td>{{ $category->name }}</td>
-      <td>{{ $category->created_at }}</td>
-    </tr>
-   @endforeach
-  </tbody>
-</table>
-    </div>
-    <div class="col-md-3">
-<div class="well">  
+  <div class="container" style="margin-top:40px;">
 
+      <div class="row">
 
-<form method="POST" action="categories/store" class="submit-form" enctype="multipart/form-data" data-parsley-validate>
-@csrf
-  <label for="category">category name:</label>
-  <input type="text" id='name' name="name" required><br><br>
+          <div class="col-lg-3">
+              <div class="list-group">
+                  <a href="/index" class="btn btn-primary btn-block"> Back to home </a>
+                  <hr>
+                 </div>
+                 </div>
+                
+              <div class="row">
+                @foreach($post as $p)
+                @if($p->category_id == $category->id)
+                  <div class="col-lg-4 col-md-6 mb-4">
+                      <div class="card h-100">
+                            
+                          <a href="/show/{{$p->id}}"><img class="card-img-top" src="/images/{{$p->image}}" alt="" height="280px" width="320px"></a>
+                          <div class="card-body">
+                              <h4 class="card-title">
+                                  <a href="/show/{{$p->id}}">{{$p->title }}</a>
+                              </h4>
+                              <h5>Price : {{$p->prix}} DT</h5>
+                              <p class="card-text">{{substr($p->body,0,50)}}{{ strlen($p->body) > 50 ? "...." : "" }}
+                              </p>
+                              <p>ped : {{ date( 'M j, Y H:i' , strtotime($p->created_at)   )  }} </p>
+                              <p>by:
+                                  @if (Auth::user()->id == $p->user->id)<a href="#">  YOU </a>
+                                  @else
+                                  <a href="/user/{{$p->user->name}} "> {{$p->user->name}}  </a>
+                                @endif</p>
+                              <p> </p>
+                          </div>
+                          <div class="card-footer">
+                            <a href="/shop" role="button" > SEE IN SHOP </a>
+                          </div>
+                      </div>  
+                  </div>
+                  @endif
+                @endforeach
+                  
 
-  <input type="submit" value="Create new category" class="btn btn-success">
-</form>
+              </div>
+              <!-- /.row -->
+            
+          </div>
+          <!-- /.col-lg-9 -->
 
+      </div>
+      <!-- /.row -->
 
-</div>   
-
-
-
-        
-    </div>
-    </div>
   </div>
+  <!-- /.container -->
+ 
+    
+</div>
+</div>
+
+<br>
+    
+    
+    
   @endsection

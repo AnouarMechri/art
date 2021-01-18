@@ -15,9 +15,9 @@
                   <a href="/create" class="btn btn-primary btn-block"> Create new post </a>
                   <hr>
                   <a href="/categories/index" class="btn btn-primary btn-block"> show all categories </a>
-                  
-                  <a href="#" class="list-group-item">{{ ($categories) }}</a>
-                  
+                  @foreach($categories as $cat) 
+                  <a href="cat/{{$cat->name}}" class="list-group-item">{{ ($cat->name) }}</a>
+                  @endforeach
               </div>
 
           </div>

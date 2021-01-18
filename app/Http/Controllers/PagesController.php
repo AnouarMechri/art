@@ -17,12 +17,7 @@ class PagesController extends Controller
         $this->middleware('auth');
     }
     public function index() {
-        $categories = DB::table('categories')
-            ->join('post', 'categories.id', '=', 'post.category_id')
-            ->select(DB::raw('count(post.category_id) as A'))
-          
-            ->get();
-           
+        $categories = Category::all();
        
         $posts = post::latest()->paginate(6);
 

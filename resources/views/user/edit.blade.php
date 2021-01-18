@@ -2,8 +2,9 @@
 
 @section ('title','|Create')
 @section('content')
-@if ($errors->any())
 @if(Auth::user()->id == $user->id)
+@if ($errors->any())
+
 <div class="alert alert-danger">
     <ul>
         @foreach ($errors->all() as $error)
@@ -17,6 +18,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Edit</div>
+                <h1></h1>
 
                 <div class="card-body">
                 <form action="/user/update/{{$user->name}}" method="POST"  enctype="multipart/form-data" class="submit-form"data-parsley-validate>
