@@ -11,21 +11,18 @@
                 </div>
                 <div class="card-body">
                     
-                    <form action="/contact" method="POST">
+                    <form action="/checkin" method="POST">
                     @csrf
                     
-                        <div class="form-group">
-                            <label for="name">Shippping Adress </label>
-                            <input type="text" class="form-control" id="subject" aria-describedby="emailHelp" placeholder="Enter subject" name="subject" required>
-                        </div>
+                        
                         <div class="form-group">
                             <label for="email">Email address</label>
                             <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email"  name='email'required>
                             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                         </div>
                         <div class="form-group">
-                            <label for="message">Any Comment</label>
-                            <textarea class="form-control" id="message" name="bodymsg" rows="6" required></textarea>
+                            <label for="message">Shipping Adress</label>
+                            <input class="form-control" id="message" name="bodymsg" rows="6" required>
                         </div>
                         <div class="mx-auto">
                         <form action="{{ route('cart.clear') }}" method="POST">
