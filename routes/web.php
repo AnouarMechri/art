@@ -70,7 +70,7 @@ Route::get('/contact', [PagesController::class, 'contact']);
 Route::post('/contact', [PagesController::class, 'postContact']);
 Route::get('/index', [PagesController::class, 'index']);
 
-
+Route::post('/checkin', [CartController::class, 'postCheckout']);
 Route::get('/shop', [CartController::class,'shop'])->name('shop');
 Route::get('/cart', [CartController::class,'cart'])->name('cart.index');
 Route::post('/add', [CartController::class,'add'])->name('cart.store');
