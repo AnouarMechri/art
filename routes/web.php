@@ -6,6 +6,7 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CartController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -68,6 +69,16 @@ Route::get('/about', [PagesController::class, 'about']);
 Route::get('/contact', [PagesController::class, 'contact']);
 Route::post('/contact', [PagesController::class, 'postContact']);
 Route::get('/index', [PagesController::class, 'index']);
+
+
+Route::get('/shop', [CartController::class,'shop'])->name('shop');
+Route::get('/cart', [CartController::class,'cart'])->name('cart.index');
+Route::post('/add', [CartController::class,'add'])->name('cart.store');
+Route::post('/update', [CartController::class,'update'])->name('cart.update');
+Route::post('/remove', [CartController::class,'remove'])->name('cart.remove');
+Route::post('/clear', [CartController::class,'clear'])->name('cart.clear');
+Route::get('/checkout', [CartController::class,'checkout']);
+
 
 
 
