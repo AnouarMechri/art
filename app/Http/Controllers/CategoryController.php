@@ -24,8 +24,8 @@ class CategoryController extends Controller
         
        
         $category = Category::where('name', '=', $name)->first();
-        $post= Post::all();
-        return view('categories.index')->with('category', $category)->with('post',$post);
+        $posts= Post::all();
+        return view('categories.index')->with('category', $category)->with('posts',$posts);
     }
         
     

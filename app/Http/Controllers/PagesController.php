@@ -23,6 +23,7 @@ class PagesController extends Controller
 
         return view('pages.index', compact('categories', 'posts'));
     }
+   
 
     public function about() {
         return view('pages.about') ;
