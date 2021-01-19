@@ -16,7 +16,7 @@
                 <hr>
                 <a href="#" class="btn btn-primary btn-block"> Categories </a>
                 @foreach($categories as $cat)
-                <a href="cat/{{$cat->name}}" class="list-group-item">{{ ($cat->name) }}</a>
+                <a href="cat/{{$cat->name}}" class="list-group-item">{{ ($cat->name) }} ({{ $cat->posts->count() }})</a>
                 @endforeach
             </div>
 
@@ -40,7 +40,7 @@
                         <img class="d-block img-fluid" src="/coursel/po.jpg" alt="Second slide">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Third slide">
+                        <img class="d-block img-fluid" src="/coursel/okay.jpg" alt="Third slide">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

@@ -7,6 +7,7 @@ use App\Http\Controllers\SiteController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CommentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,6 +33,10 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::post('/comments/{post_id}', [CommentController::class, 'store']);
+Route::get('/destroy/{post_id}', [PostController::class, 'destroy']);
+
+
 Route::get('user/{name}',['as'=>'user.single', 'uses' => 'App\Http\Controllers\UserController@Single']);
 Route::get('user/{name}/posts',['as'=>'user.archieve', 'uses' => 'App\Http\Controllers\UserController@archieve']);
 
@@ -47,7 +52,7 @@ Route::get('categories/index', [CategoryController::class, 'index']);
 Route::get('/show/{post}', [CategoryController::class, 'show']);
 Route::get('/edit/{post}', [CategoryController::class, 'edit']);
 Route::post('categories/update/{post}', [CategoryController::class, 'update']);
-Route::get('/destroy/{post}', [CategoryController::class, 'destroy']);
+
 
 
 

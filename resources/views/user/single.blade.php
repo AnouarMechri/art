@@ -103,9 +103,9 @@
               </div>
               <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap" style="margin-bottom: 30px;">
               <a href="/user/{{$user->name}}/posts">   @if (Auth::user()->id == $user->id)
-              <h4>view your posts</h4></a>
+              <h4>view your posts  ({{$user->posts->count()}})</h4></a>
               @else
-              <h4>view {{$user->name}} all posts</h4></a>
+              <h4>view {{$user->name}} all posts ({{$user->posts->count()}})</h4></a>
               @endif
               </div>
             </div>

@@ -11,6 +11,9 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Cart;
+use App\Models\Comment;
+
+
 use Session; 
 
 
@@ -99,10 +102,12 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
+
+    { 
+         $comments= Comment::all();
         $post= Post::find($id);
        
-        return view('post.show')->with('post',$post);
+        return view('post.show')->with('post',$post)->with('comments',$comments);
     }
 
     /**
